@@ -1,5 +1,6 @@
+/* Mahogany wood desk background */
 body {
-    background-color: rgba(255, 255, 240, 0.92);
+    background: url('mahogany.jpg') no-repeat center center fixed;
     background-size: cover;
     font-family: 'Libre Baskerville', Georgia, serif;
     color: #2c2c2c;
@@ -7,13 +8,18 @@ body {
     padding: 2em;
 }
 
+/* Parchment-style letter */
 .letter-container {
-    background: url('parchment.jpg') no-repeat center center fixed;
+    background: url('parchment.jpg') repeat;
+    background-size: cover;
     padding: 2em;
     max-width: 800px;
     margin: auto;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    animation: rollout 2s ease-out forwards;
+    opacity: 0;
+    transform: translateY(-100px);
 }
 
 h1 {
@@ -33,4 +39,43 @@ h1 {
     margin-top: 2em;
     font-weight: bold;
     line-height: 1.4;
+}
+
+.wax-seal {
+    display: block;
+    margin: 2em auto 0;
+    max-width: 120px;
+    opacity: 0.85;
+}
+
+/* Drop cap on first paragraph */
+.letter-container p:nth-of-type(3)::first-letter {
+    font-size: 2.5em;
+    float: left;
+    line-height: 1;
+    padding-right: 6px;
+    font-family: 'Cinzel', serif;
+}
+
+/* Rollout animation */
+@keyframes rollout {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .letter-container {
+        padding: 1.2em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .wax-seal {
+        max-width: 90px;
+    }
 }
